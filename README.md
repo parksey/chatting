@@ -23,3 +23,22 @@ create database chat;
 show databases;
 ```
 
+### 테스트 방법
+```
+http 폴더 내부의 테스트 진행
+```
+
+[private 테스트 환경 추가]
+```
+{
+  "default": {
+    "my-login-id": "tester1",
+    "my-password": "test"
+  },
+  "local": {
+    "my-login-id": "tester1",
+    "my-password": "test"
+  }
+}
+```
+- 회원 가입 후 자신의 id, password추가 후 login 테스트 진행
