@@ -5,7 +5,7 @@ import org.chat.common.config.KeyProperty
 
 data class PublicClaim(
     val id: Long,
-    val permission: String,
+    val permission: String = "USER",
 ) {
     companion object {
         fun of(claim: Claims): PublicClaim {

@@ -1,4 +1,4 @@
-package org.chat.core.user
+package org.chat.core.user.entity
 
 import jakarta.persistence.*
 import org.chat.core.common.BaseEntity
@@ -9,6 +9,10 @@ class UserEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
+    val loginId: String,
+    val password: String,
     val name: String,
 ) : BaseEntity() {
+
+    val identity: Long get() = requireNotNull(id)
 }

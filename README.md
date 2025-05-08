@@ -1,7 +1,10 @@
-## Polling, Long Polling ,SSE 구현
+## 채팅 정리
+```
+1. Polling, Long Polling ,SSE, Socket 구현
+2. Socket을 사용한 인프라 구축
+```
 
-
-### Docker
+### MySQL 설정 - Docker
 
 [컨테이너 생성 및 사용]
 ```bash
