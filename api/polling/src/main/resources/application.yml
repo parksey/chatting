@@ -1,0 +1,13 @@
+spring.application.name: polling
+
+spring:
+  config:
+    import:
+      - application-core.yml
+      - application-common.yml
+
+server:
+  port: 8081
+  servlet:
+    context-path: /polling
+  shutdown: graceful

@@ -1,0 +1,6 @@
+key:
+  iss: "chat"
+  access-secret: f<rb$Urm*6Y[#AiG6I$C\VXHx7YIma64vc#VPVvmqA%Wki'#Sqdac#o6W\bMPICvm>aXic3orCVJe10
+  refresh-secret: 6XImiGPVaf<rbqAM2v&8<HnkP6doVDxY[#PV6fXUrm*WmVPC03\nko'#%S6Ia7Y\Wki'>
+  access-expire: 604800
+  refresh-expire: 604800

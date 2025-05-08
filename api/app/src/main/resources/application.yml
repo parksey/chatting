@@ -1,0 +1,13 @@
+spring.application.name: app
+
+spring:
+  config:
+    import:
+      - application-core.yml
+      - application-common.yml
+
+server:
+  port: 8080
+  servlet:
+    context-path: /app
+  shutdown: graceful
