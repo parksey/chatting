@@ -1,0 +1,19 @@
+### 회원가입
+# @no-cookie-jar
+POST {{app}}/user/sign-up
+Content-Type: application/json
+
+{
+ "loginId" : "tester1",
+ "name": "박세연",
+ "password": "test"
+}
+> {%
+    client.test("Validate", function () {
+        client.assert(response.status === 201, "Response status is not 201");
+        client.assert(response.contentType.mimeType === "application/json", "Expected 'application/json'");
+        client.assert(response.headers.valueOf("Authorization").startsWith("Bearer"));
+    });
+
+    client.log(response.headers.valueOf("Authorization"));
+%}

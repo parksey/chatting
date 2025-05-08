@@ -1,0 +1,19 @@
+### 로그인
+# @no-cookie-jar
+POST {{app}}/login
+Content-Type: application/json
+
+{
+  "loginId": "{{my-login-id}}",
+  "password": "{{my-password}}"
+}
+
+> {%
+    client.test("Validate", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+        client.assert(response.contentType.mimeType === "application/json", "Expected 'application/json'");
+        client.assert(response.headers.valueOf("Authorization").startsWith("Bearer"));
+    });
+
+    client.global.set("token", response.headers.valueOf("Authorization").replace("Bearer ", ""));
+%}

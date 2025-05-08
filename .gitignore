@@ -38,3 +38,4 @@ out/
 
 **/main/generated/
 
+http/http-client.private.env.json
