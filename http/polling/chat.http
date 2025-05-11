@@ -1,0 +1,28 @@
+### 첫 대화
+# @no-cookie-jar
+POST {{polling}}/chat/message
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "첫 대화",
+  "messageType": "TEXT",
+  "receiverId": 2
+
+}
+> {%
+    client.test("Validate", function () {
+        client.assert(response.status === 200, "Response status is not 201");
+    });
+%}
+
+### 조회
+GET {{polling}}/chat/1/messages
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+> {%
+    client.test("Validate", function () {
+        client.assert(response.status === 200, "Response status is not 201");
+    });
+%}
