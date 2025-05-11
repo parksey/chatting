@@ -13,7 +13,7 @@ class CurrentUserResolver : HandlerMethodArgumentResolver {
 
     override fun supportsParameter(parameter: MethodParameter): Boolean {
         val hasAnnotation = parameter.hasParameterAnnotation(CurrentUser::class.java)
-        val isStringType = parameter.parameterType == String::class.java
+        val isStringType = parameter.parameterType == Long::class.java
         return hasAnnotation && isStringType
     }
 
@@ -24,7 +24,7 @@ class CurrentUserResolver : HandlerMethodArgumentResolver {
         binderFactory: WebDataBinderFactory?
     ): Any {
         val authentication = SecurityContextHolder.getContext().authentication
-        val authUser = (authentication as? AuthUser)
+        val authUser = (authentication.principal as? AuthUser)
             ?: throw IllegalStateException("Authentication is not AuthUser")
         return authUser.id
     }

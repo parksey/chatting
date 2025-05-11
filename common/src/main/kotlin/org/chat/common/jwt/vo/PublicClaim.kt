@@ -10,7 +10,7 @@ data class PublicClaim(
     companion object {
         fun of(claim: Claims): PublicClaim {
             return PublicClaim(
-                id = claim[KeyProperty.ID] as Long,
+                id = (claim[KeyProperty.ID] as Number).toLong(),
                 permission = claim[KeyProperty.ROLE] as String
             )
         }
