@@ -8,6 +8,7 @@ plugins {
 
 allOpen {
     annotations("org.springframework.stereotype.Service")
+    annotations("org.springframework.stereotype.Repository")
 }
 
 dependencies {
@@ -27,12 +28,12 @@ dependencies {
     implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.10.0")
 
     // querydsl
-//    implementation("com.querydsl:querydsl-jpa:${dependencyManagement.importedProperties["querydsl.version"]}:jakarta")
-//    implementation("com.querydsl:querydsl-apt:${dependencyManagement.importedProperties["querydsl.version"]}:jakarta")
-//    implementation("jakarta.persistence:jakarta.persistence-api")
-//    implementation("jakarta.annotation:jakarta.annotation-api")
-//    kapt("com.querydsl:querydsl-apt:${dependencyManagement.importedProperties["querydsl.version"]}:jakarta")
-//    kapt("org.springframework.boot:spring-boot-configuration-processor")
+    implementation("com.querydsl:querydsl-jpa:${dependencyManagement.importedProperties["querydsl.version"]}:jakarta")
+    implementation("com.querydsl:querydsl-apt:${dependencyManagement.importedProperties["querydsl.version"]}:jakarta")
+    implementation("jakarta.persistence:jakarta.persistence-api")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    kapt("com.querydsl:querydsl-apt:${dependencyManagement.importedProperties["querydsl.version"]}:jakarta")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     // test fixture
     testFixturesImplementation("org.springframework.boot:spring-boot-starter-test")

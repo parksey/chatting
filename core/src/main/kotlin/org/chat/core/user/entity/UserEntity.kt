@@ -12,6 +12,7 @@ class UserEntity(
     val loginId: String,
     val password: String,
     val name: String,
+    val thumbnail: String? = null,
 ) : BaseEntity() {
 
     val identity: Long get() = requireNotNull(id)
