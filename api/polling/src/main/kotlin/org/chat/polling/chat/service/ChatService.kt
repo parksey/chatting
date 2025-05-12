@@ -26,13 +26,13 @@ class ChatService(
         chatSendCoreService.send(messageCommand, room)
     }
 
-    fun getMessages(roomId: Long, cursorId: Long?, limit: Long): MessagesResponse {
+    fun getMessages(user: Long, roomId: Long, cursorId: Long?, limit: Long): MessagesResponse {
         val messageInfos = messageCustomRepository.findMessagesBy(
             roomId = roomId,
             cursorId = cursorId,
             limit = limit,
         )
 
-        return MessagesResponse.of(messageInfos)
+        return MessagesResponse.of(messageInfos, user)
     }
 }

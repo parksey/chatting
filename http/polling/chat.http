@@ -1,20 +1,24 @@
-### 첫 대화
-# @no-cookie-jar
-POST {{polling}}/chat/message
-Content-Type: application/json
-Authorization: Bearer {{token}}
+import ../app/login.http
 
-{
-  "message": "첫 대화",
-  "messageType": "TEXT",
-  "receiverId": 2
+run #로그인
 
-}
-> {%
-    client.test("Validate", function () {
-        client.assert(response.status === 200, "Response status is not 201");
-    });
-%}
+#### 첫 대화
+## @no-cookie-jar
+#POST {{polling}}/chat/message
+#Content-Type: application/json
+#Authorization: Bearer {{token}}
+#
+#{
+#  "message": "첫 대화",
+#  "messageType": "TEXT",
+#  "receiverId": 2
+#
+#}
+#> {%
+#    client.test("Validate", function () {
+#        client.assert(response.status === 200, "Response status is not 201");
+#    });
+#%}
 
 ### 조회
 GET {{polling}}/chat/1/messages

@@ -36,10 +36,11 @@ class ChatController(
 
     @GetMapping("/chat/{roomId}/messages")
     fun getMessages(
+        @CurrentUser user: Long,
         @PathVariable roomId: Long,
         @RequestParam cursorId: Long? = null,
         @RequestParam limit: Long = 20,
     ): ResponseEntity<MessagesResponse> {
-        return ResponseEntity.ok(chatService.getMessages(roomId, cursorId, limit))
+        return ResponseEntity.ok(chatService.getMessages(user, roomId, cursorId, limit))
     }
 }

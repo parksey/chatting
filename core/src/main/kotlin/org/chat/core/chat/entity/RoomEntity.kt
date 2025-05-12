@@ -9,12 +9,13 @@ class RoomEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
-    name: String? = null,
-    roomType: RoomType,
-    ownerId: Long,
+    name: String,
+    @Enumerated(EnumType.STRING)
+    val roomType: RoomType,
+    val ownerId: Long,
 ) {
 
-    var name: String? = name
+    var name: String = name
         private set
 
     val identity: Long get() = requireNotNull(id)

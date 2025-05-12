@@ -1,0 +1,14 @@
+import ./login.http
+
+run #로그인
+
+### 방 조회
+GET {{app}}/rooms
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+> {%
+    client.test("Validate", function () {
+        client.assert(response.status === 200, "Response status is not 201");
+    });
+%}

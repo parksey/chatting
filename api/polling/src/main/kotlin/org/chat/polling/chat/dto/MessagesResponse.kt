@@ -9,9 +9,9 @@ data class MessagesResponse (
     val messages: List<Message>,
 ) {
     companion object {
-        fun of(messageInfos: List<MessageInfo>): MessagesResponse {
+        fun of(messageInfos: List<MessageInfo>, user: Long): MessagesResponse {
             return MessagesResponse(
-                messages = messageInfos.map { Message.of(it) }
+                messages = messageInfos.map { Message.of(it, user) }
             )
         }
     }
@@ -24,9 +24,10 @@ data class Message (
     val messageType: MessageType,
     val createdAt: LocalDateTime,
     val isDeleted: Boolean,
+    val isMe: Boolean,
 ) {
     companion object {
-        fun of(messageInfo: MessageInfo): Message {
+        fun of(messageInfo: MessageInfo, user: Long): Message {
             return with(messageInfo) {
                 Message(
                     id = id,
@@ -38,7 +39,8 @@ data class Message (
                     ),
                     messageType = messageType,
                     createdAt = createdAt,
-                    isDeleted = isDeleted
+                    isDeleted = isDeleted,
+                    isMe = userId == user
                 )
             }
         }
